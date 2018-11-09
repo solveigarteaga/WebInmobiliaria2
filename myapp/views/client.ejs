@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Inmobiliaria</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="../public/stylesheets/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="../public/stylesheets/style.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- Header -->
+<div class="container-fuid" id="container-fuid-id">
+	<div class="header col-12 text-right p-2">
+        <a class= "p-2" href="" onclick="logout()">CERRAR SESION</a>
+    </div>
+	<!-- Menu -->
+	<div class="col-12 p-2">
+            <nav class="menu ">
+                <ul class="nav justify-content-center" id="navbarontop">
+                    <li class="nav-item">
+                        <a class="nav-link active " href="/admin">Home</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active"  href="#" data-toggle="modal" data-target="#modalAgregar" >Agregar Inmueble</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active " href="/admin/client">Clientes</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    
+        <!-- Modal agregar -->
+        <div class="modal fade bd-example-modal-lg" id="modalAgregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title " id="exampleModalCenterTitle">Nueva propiedad</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fuid" id="modal-agregar">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Direccion Imagen: </label>
+                                    <input required type="text" class="form-control" id="PAimagen" >
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Tipo: </label>
+                                            <select class="form-control" required id="PAtipo">
+                                                <option>Casa</option>
+                                                <option>Apartamento</option>
+                                                <option>Finca</option>
+                                                <option>Otro</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Area: (m2) </label>
+                                            <input type="number" class="form-control" required id="PAarea">
+                                        </div>
+                                    </div>  
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Baños: </label>
+                                            <input type="number" class="form-control" required id="PAbano">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Habitaciones: </label>
+                                            <input type="number" class="form-control" required id="PAhabitacion">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Precio: </label>
+                                            <input type="text" class="form-control" required id="PAprecio">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Moneda: </label>
+                                            <select class="form-control" required id="PAmoneda">
+                                                <option>USD</option>
+                                                <option>Bs</option>
+                                                <option>EU</option>
+                                                <option>BTC</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 list text-center">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Nombre: </label>
+                                        <input type="text" class="form-control" id="PAnombre" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Pais: </label>
+                                        <input type="text" class="form-control" id="PApais" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Ciudad: </label>
+                                        <input type="text" class="form-control" id="PAciudad" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Ubicacion: </label>
+                                        <input type="text" class="form-control" id="PAubicacion" required>
+                                    </div>                              
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>				
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary btn-default" onclick="NuevaPropiedad()">Agregar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    <!--Tabla de usuarios-->
+    <div class="row mx-5 ">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Mensaje</th>
+                    </tr>
+                </thead>
+                <tbody id="filasClientes">
+                    <script>
+                        let i =0;
+                        let content = "";
+                                fetch("/cliente/getAllClients", {
+                                    method: 'GET'
+                                }).then((response) => {
+                                    response.json().then((res) => {
+                                        res.data.forEach(item => {
+                                            i++;
+                                            content = `<tr>
+                                                        <th scope="row">$1</th>
+                                                        <td>$2</td>
+                                                        <td>$3</td>
+                                                        <td>$4</td>
+                                                        <td>$5</td>
+                                                        <td>$6</td>
+                                                    </tr>`;
+                                            content = content.replace("$1", i);
+                                            content = content.replace("$2", item.nombre);
+                                            content = content.replace("$3", item.apellido);
+                                            content = content.replace("$4", item.correo);
+                                            content = content.replace("$5", item.telefono);
+                                            content = content.replace("$6", item.mensaje);
+                                            $('#filasClientes').append(content);
+                                        })
+                                    })
+                                })  
+                    </script>                    
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+       
+    
+</div>
+</body>
+</html>
+<script>
+    function NuevaPropiedad(){
+        let titulo = document.getElementById("PAnombre").value;
+        let pais = document.getElementById("PApais").value;
+        let ciudad = document.getElementById("PAciudad").value;
+        let ubicacion = document.getElementById("PAubicacion").value;
+        let tipo = document.getElementById("PAtipo").value;
+        let area = document.getElementById("PAarea").value;
+        let bano = document.getElementById("PAbano").value;
+        let habitacion = document.getElementById("PAhabitacion").value;
+        let precio = document.getElementById("PAprecio").value;
+        let moneda = document.getElementById("PAmoneda").value;
+        let imagen = document.getElementById("PAimagen").value;
+
+        fetch("/propiedad/newPropiedad", {
+            method: 'POST',
+            headers: { "Content-type" : "application/json; charset=UTF-8"},
+            body: JSON.stringify({
+                titulo: titulo,
+                pais: pais,
+                ciudad: ciudad,
+                ubicacion: ubicacion,
+                tipo: tipo,
+                area: area,
+                bano: bano,
+                habitaciones: habitacion,
+                precio: precio,
+                moneda: moneda,
+                url_imagen: imagen,
+                status: "Disponible"
+            })
+        }).then(function(response) {
+            response.json().then(function(res){
+            });
+        })        
+    }
+
+    function logout(){
+        fetch("/logout" , {
+            method: 'GET'
+        });
+        alert("Hasta pronto!")
+        location.reload();
+    }
+</script>
