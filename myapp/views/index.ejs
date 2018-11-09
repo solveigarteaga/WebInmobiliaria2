@@ -148,7 +148,7 @@
 				<div class="container-fuid" id="modal-detail">
 					<div class="row">
 						<div class="col-6">
-							<img src="../public/images/Casa1.jpg" class="img-fluid" alt="">
+							<img class="img-fluid" alt="" id="Pimagen">
 						</div>
 						<div class="col-6 list text-center">
 							<ul class="text-left">
@@ -264,6 +264,7 @@
 				document.getElementById("Parea").innerHTML = res.data[0].area + " m²";
 				document.getElementById("Ptipo").innerHTML = res.data[0].tipo;
 				document.getElementById("Pstatus").innerHTML = res.data[0].status;
+                document.getElementById("Pimagen").src = res.data[0].url_imagen;
 			})
 		})  
 	}
